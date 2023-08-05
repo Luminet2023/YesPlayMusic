@@ -15,18 +15,19 @@ import {
  * @param {string} id - 音乐的 id，例如 id=405998841,33894312
  */
 export function getMP3(id) {
-  const getBr = () => {
+  const getlevel = () => {
     // 当返回的 quality >= 400000时，就会优先返回 hi-res
-    const quality = store.state.settings?.musicQuality ?? '320000';
-    return quality === 'flac' ? '350000' : quality;
+    const quality = store.state.settings.musicQuality;
+    return quality;
   };
 
   return request({
-    url: '/song/url',
+    url: '/song/url/v1',
     method: 'get',
     params: {
       id,
-      br: getBr(),
+      // br: getBr(),
+      level: getlevel(),
     },
   });
 }

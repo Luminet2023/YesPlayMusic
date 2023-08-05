@@ -29,7 +29,7 @@
 
       <div class="item">
         <div class="left">
-          <div class="title"> {{ $t('settings.language') }} </div>
+          <div class="title">{{ $t('settings.language') }}</div>
         </div>
         <div class="right">
           <select v-model="lang">
@@ -42,73 +42,70 @@
       </div>
       <div class="item">
         <div class="left">
-          <div class="title"> {{ $t('settings.appearance.text') }} </div>
+          <div class="title">{{ $t('settings.appearance.text') }}</div>
         </div>
         <div class="right">
           <select v-model="appearance">
             <option value="auto">{{ $t('settings.appearance.auto') }}</option>
-            <option value="light"
-              >🌞 {{ $t('settings.appearance.light') }}</option
-            >
-            <option value="dark"
-              >🌚 {{ $t('settings.appearance.dark') }}</option
-            >
+            <option value="light">
+              🌞 {{ $t('settings.appearance.light') }}
+            </option>
+            <option value="dark">
+              🌚 {{ $t('settings.appearance.dark') }}
+            </option>
           </select>
         </div>
       </div>
       <div class="item">
         <div class="left">
-          <div class="title">
-            {{ $t('settings.MusicGenrePreference.text') }}
-          </div>
+          <div class="title">音乐语种偏好</div>
         </div>
         <div class="right">
           <select v-model="musicLanguage">
-            <option value="all">{{
-              $t('settings.MusicGenrePreference.none')
-            }}</option>
-            <option value="zh">{{
-              $t('settings.MusicGenrePreference.mandarin')
-            }}</option>
-            <option value="ea">{{
-              $t('settings.MusicGenrePreference.western')
-            }}</option>
-            <option value="jp">{{
-              $t('settings.MusicGenrePreference.japanese')
-            }}</option>
-            <option value="kr">{{
-              $t('settings.MusicGenrePreference.korean')
-            }}</option>
+            <option value="all">无偏好</option>
+            <option value="zh">华语</option>
+            <option value="ea">欧美</option>
+            <option value="jp">日语</option>
+            <option value="kr">韩语</option>
           </select>
         </div>
       </div>
 
-      <!-- <h3>音质</h3> -->
+      <h3>音质</h3>
       <div class="item">
         <div class="left">
-          <div class="title"> {{ $t('settings.musicQuality.text') }} </div>
+          <div class="title">{{ $t('settings.musicQuality.text') }}</div>
         </div>
         <div class="right">
           <select v-model="musicQuality">
-            <option value="128000">
-              {{ $t('settings.musicQuality.low') }} - 128Kbps
+            <option value="standard">
+              {{ $t('settings.musicQuality.low') }}
             </option>
-            <option value="192000">
-              {{ $t('settings.musicQuality.medium') }} - 192Kbps
+            <option value="higher">
+              {{ $t('settings.musicQuality.medium') }}
             </option>
-            <option value="320000">
-              {{ $t('settings.musicQuality.high') }} - 320Kbps
+            <option value="exhigh">
+              {{ $t('settings.musicQuality.high') }}
             </option>
-            <option value="flac">
-              {{ $t('settings.musicQuality.lossless') }} - FLAC
+            <option value="lossless">
+              {{ $t('settings.musicQuality.lossless') }}
             </option>
-            <option value="999000">Hi-Res</option>
+            <option value="hires">Hi-Res</option>
+            <option value="jyeffect">
+              {{ $t('settings.musicQuality.hd') }}
+            </option>
+            <option value="sky">
+              {{ $t('settings.musicQuality.sky') }}
+            </option>
+            <option value="jymaster">
+              {{ $t('settings.musicQuality.jymaster') }}
+            </option>
           </select>
         </div>
       </div>
       <div v-if="isElectron" class="item">
         <div class="left">
-          <div class="title"> {{ $t('settings.deviceSelector') }} </div>
+          <div class="title">{{ $t('settings.deviceSelector') }}</div>
         </div>
         <div class="right">
           <select v-model="outputDevice">
@@ -145,18 +142,18 @@
       </div>
       <div v-if="isElectron" class="item">
         <div class="left">
-          <div class="title"> {{ $t('settings.cacheLimit.text') }} </div>
+          <div class="title">{{ $t('settings.cacheLimit.text') }}</div>
         </div>
         <div class="right">
           <select v-model="cacheLimit">
             <option :value="false">
               {{ $t('settings.cacheLimit.none') }}
             </option>
-            <option :value="512"> 500MB </option>
-            <option :value="1024"> 1GB </option>
-            <option :value="2048"> 2GB </option>
-            <option :value="4096"> 4GB </option>
-            <option :value="8192"> 8GB </option>
+            <option :value="512">500MB</option>
+            <option :value="1024">1GB</option>
+            <option :value="2048">2GB</option>
+            <option :value="4096">4GB</option>
+            <option :value="8192">8GB</option>
           </select>
         </div>
       </div>
@@ -168,8 +165,8 @@
                 song: tracksCache.length,
                 size: tracksCache.size,
               })
-            }}</div
-          >
+            }}
+          </div>
         </div>
         <div class="right">
           <button @click="clearCache()">
@@ -178,7 +175,7 @@
         </div>
       </div>
 
-      <h3>{{ $t('settings.lyric') }}</h3>
+      <h3>歌词</h3>
       <div class="item">
         <div class="left">
           <div class="title">{{ $t('settings.showLyricsTranslation') }}</div>
@@ -207,7 +204,7 @@
             <option :value="true">
               {{ $t('settings.lyricsBackground.on') }}
             </option>
-            <option value="blur"> 模糊封面 </option>
+            <option value="blur">模糊封面</option>
             <option value="dynamic">
               {{ $t('settings.lyricsBackground.dynamic') }}
             </option>
@@ -216,7 +213,7 @@
       </div>
       <div class="item">
         <div class="left">
-          <div class="title"> {{ $t('settings.showLyricsTime') }} </div>
+          <div class="title">{{ $t('settings.showLyricsTime') }}</div>
         </div>
         <div class="right">
           <div class="toggle">
@@ -232,7 +229,7 @@
       </div>
       <div class="item">
         <div class="left">
-          <div class="title"> {{ $t('settings.lyricFontSize.text') }} </div>
+          <div class="title">{{ $t('settings.lyricFontSize.text') }}</div>
         </div>
         <div class="right">
           <select v-model="lyricFontSize">
@@ -256,14 +253,14 @@
         <h3>UnblockNeteaseMusic</h3>
         <div class="item">
           <div class="left">
-            <div class="title"
-              >{{ $t('settings.unm.enable') }}
+            <div class="title">
+              {{ $t('settings.unm.enable') }}
               <a
                 href="https://github.com/UnblockNeteaseMusic/server"
                 target="blank"
                 >UnblockNeteaseMusic</a
-              ></div
-            >
+              >
+            </div>
           </div>
           <div class="right">
             <div class="toggle">
@@ -306,7 +303,7 @@
 
         <div class="item">
           <div class="left">
-            <div class="title"> {{ $t('settings.unm.enableFlac.title') }} </div>
+            <div class="title">{{ $t('settings.unm.enableFlac.title') }}</div>
             <div class="description">
               {{ $t('settings.unm.enableFlac.desc') }}
             </div>
@@ -325,7 +322,7 @@
 
         <div class="item">
           <div class="left">
-            <div class="title"> {{ $t('settings.unm.searchMode.title') }} </div>
+            <div class="title">{{ $t('settings.unm.searchMode.title') }}</div>
           </div>
           <div class="right">
             <select v-model="unmSearchMode">
@@ -362,7 +359,7 @@
 
         <div class="item">
           <div class="left">
-            <div class="title"> {{ $t('settings.unm.cookie.qq') }} </div>
+            <div class="title">{{ $t('settings.unm.cookie.qq') }}</div>
             <div class="description">
               <a
                 href="https://github.com/UnblockNeteaseMusic/server-rust/tree/main/engines#qq-cookie-設定說明"
@@ -383,7 +380,7 @@
 
         <div class="item">
           <div class="left">
-            <div class="title"> {{ $t('settings.unm.ytdl') }} </div>
+            <div class="title">{{ $t('settings.unm.ytdl') }}</div>
             <div class="description">
               <a
                 href="https://github.com/UnblockNeteaseMusic/server-rust/tree/main/engines#ytdlexe-設定說明"
@@ -404,7 +401,7 @@
 
         <div class="item">
           <div class="left">
-            <div class="title"> {{ $t('settings.unm.proxy.title') }} </div>
+            <div class="title">{{ $t('settings.unm.proxy.title') }}</div>
             <div class="description">
               {{ $t('settings.unm.proxy.desc1') }}<br />
               {{ $t('settings.unm.proxy.desc2') }}
@@ -420,7 +417,7 @@
         </div>
       </section>
 
-      <h3>{{ $t('settings.customization') }}</h3>
+      <h3>第三方</h3>
       <div class="item">
         <div class="left">
           <div class="title">
@@ -428,21 +425,21 @@
               isLastfmConnected
                 ? `已连接到 Last.fm (${lastfm.name})`
                 : '连接 Last.fm '
-            }}</div
-          >
+            }}
+          </div>
         </div>
         <div class="right">
-          <button v-if="isLastfmConnected" @click="lastfmDisconnect()"
-            >断开连接
+          <button v-if="isLastfmConnected" @click="lastfmDisconnect()">
+            断开连接
           </button>
-          <button v-else @click="lastfmConnect()"> 授权连接 </button>
+          <button v-else @click="lastfmConnect()">授权连接</button>
         </div>
       </div>
       <div v-if="isElectron" class="item">
         <div class="left">
           <div class="title">
-            {{ $t('settings.enableDiscordRichPresence') }}</div
-          >
+            {{ $t('settings.enableDiscordRichPresence') }}
+          </div>
         </div>
         <div class="right">
           <div class="toggle">
@@ -457,10 +454,10 @@
         </div>
       </div>
 
-      <h3>{{ $t('settings.others') }}</h3>
+      <h3>其他</h3>
       <div v-if="isElectron && !isMac" class="item">
         <div class="left">
-          <div class="title"> {{ $t('settings.closeAppOption.text') }} </div>
+          <div class="title">{{ $t('settings.closeAppOption.text') }}</div>
         </div>
         <div class="right">
           <select v-model="closeAppOption">
@@ -479,7 +476,7 @@
 
       <div v-if="isElectron && isLinux" class="item">
         <div class="left">
-          <div class="title"> {{ $t('settings.enableCustomTitlebar') }} </div>
+          <div class="title">{{ $t('settings.enableCustomTitlebar') }}</div>
         </div>
         <div class="right">
           <div class="toggle">
@@ -496,7 +493,7 @@
 
       <div v-if="isElectron" class="item">
         <div class="left">
-          <div class="title"> {{ $t('settings.showLibraryDefault') }}</div>
+          <div class="title">{{ $t('settings.showLibraryDefault') }}</div>
         </div>
         <div class="right">
           <div class="toggle">
@@ -514,8 +511,8 @@
       <div class="item">
         <div class="left">
           <div class="title">
-            {{ $t('settings.showPlaylistsByAppleMusic') }}</div
-          >
+            {{ $t('settings.showPlaylistsByAppleMusic') }}
+          </div>
         </div>
         <div class="right">
           <div class="toggle">
@@ -585,13 +582,13 @@
         <h3>代理</h3>
         <div class="item">
           <div class="left">
-            <div class="title"> 代理协议 </div>
+            <div class="title">代理协议</div>
           </div>
           <div class="right">
             <select v-model="proxyProtocol">
-              <option value="noProxy"> 关闭代理 </option>
-              <option value="HTTP"> HTTP 代理 </option>
-              <option value="HTTPS"> HTTPS 代理 </option>
+              <option value="noProxy">关闭代理</option>
+              <option value="HTTP">HTTP 代理</option>
+              <option value="HTTPS">HTTPS 代理</option>
               <!-- <option value="SOCKS"> SOCKS 代理 </option> -->
             </select>
           </div>
@@ -619,7 +616,7 @@
         <h3>快捷键</h3>
         <div class="item">
           <div class="left">
-            <div class="title"> {{ $t('settings.enableGlobalShortcut') }}</div>
+            <div class="title">{{ $t('settings.enableGlobalShortcut') }}</div>
           </div>
           <div class="right">
             <div class="toggle">
@@ -681,29 +678,30 @@
                 @click.stop="
                   readyToRecordShortcut(shortcut.id, 'globalShortcut')
                 "
-                >{{
+              >
+                {{
                   shortcutInput.id === shortcut.id &&
                   shortcutInput.type === 'globalShortcut' &&
                   recordedShortcutComputed !== ''
                     ? formatShortcut(recordedShortcutComputed)
                     : formatShortcut(shortcut.globalShortcut)
-                }}</div
-              >
+                }}
+              </div>
             </div>
           </div>
           <button
             class="restore-default-shortcut"
             @click="restoreDefaultShortcuts"
-            >恢复默认快捷键</button
           >
+            恢复默认快捷键
+          </button>
         </div>
       </div>
 
       <div class="footer">
-        <p class="author"
-          >MADE BY
-          <a href="http://github.com/qier222" target="_blank">QIER222</a></p
-        >
+        <p class="author">
+          MADE BY <a href="http://github.com/qier222" target="_blank">HCY</a>
+        </p>
         <p class="version">v{{ version }}</p>
 
         <a

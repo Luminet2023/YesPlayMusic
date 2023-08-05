@@ -102,6 +102,14 @@
         <div class="blank"></div>
         <div class="container" @click.stop>
           <button-icon
+            :title="$t('player.comment')"
+            :class="{
+              active: $route.fullPath.substring(0, 15) === '/comment?type=0',
+            }"
+            @click.native="goToComment"
+            ><svg-icon icon-class="comment"
+          /></button-icon>
+          <button-icon
             :title="$t('player.nextUp')"
             :class="{
               active: $route.name === 'next',
@@ -232,6 +240,17 @@ export default {
       } else {
         this.player.playNextTrack();
       }
+    },
+    goToComment() {
+      this.$route.fullPath.substring(0, 15) === '/comment?type=0'
+        ? this.$router.go(-1)
+        : this.$router.push({
+            name: 'comment',
+            query: {
+              type: 0,
+              id: this.player.currentTrack.id,
+            },
+          });
     },
     goToNextTracksPage() {
       if (this.player.isPersonalFM) return;

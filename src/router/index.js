@@ -88,6 +88,11 @@ const routes = [
     component: () => import('@/views/newAlbum.vue'),
   },
   {
+    path: '/comment',
+    name: 'comment',
+    component: () => import('@/views/comment.vue'),
+  },
+  {
     path: '/explore',
     name: 'explore',
     component: () => import('@/views/explore.vue'),
